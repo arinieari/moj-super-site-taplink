@@ -1,0 +1,710 @@
+/* === ПЕРЕМЕННЫЕ И БАЗОВЫЕ СТИЛИ === */
+:root {
+    --light-green: #88b04b;
+    --orange: #f57c00;
+    --dark-bg: #4a4a4a; /* Используем ваш определенный цвет */
+    --light-text: #ffffff;
+    --dark-text: #333333;
+    --bg-light: #fdfdfd;
+    --border-color: #dddddd;
+    /* --bg-dark: var(--dark-bg); */ /* Это дублирование, убрал */
+    --font-main: 'Poppins', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: var(--dark-text);
+    line-height: 1.6;
+  }
+
+  .page-wrapper {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    background-color: var(--bg-light);
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .section {
+    padding: 40px 25px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .section:last-child {
+    border-bottom: none;
+  }
+
+  .section-light { background-color: var(--bg-light); color: var(--dark-text); }
+  .section-dark {
+    background-color: var(--bg-light); /* Коричневатый темный фон, как в прошлом примере */
+      background-color: var(--dark-bg); /* Использует ваш --dark-bg */
+      color: var(--light-text);
+      border-color: #666;
+    }
+  .section h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: var(--light-green);
+    font-weight: 700;
+   }
+  .section-dark h2 { color: var(--light-text); }
+
+
+  /* === СТИЛИ КНОПОК === */
+  .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold; /* У вас здесь bold, оставляем */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-primary {
+    background-color: var(--orange);
+    color: var(--light-text);
+    border-color: var(--orange);
+  }
+  .btn-primary:hover {
+    background-color: #e65100;
+    border-color: #e65100;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--light-green);
+    border-color: var(--light-green);
+  }
+  .btn-outline:hover {
+    background-color: var(--light-green);
+    color: var(--light-text);
+  }
+  .btn-outline-orange {
+      background-color: transparent;
+      color: var(--orange);
+      border-color: var(--orange);
+  }
+  .btn-outline-orange:hover {
+      background-color: var(--orange);
+      color: var(--light-text);
+   }
+
+  /* Стиль кнопки в Hero секции */
+  .hero-cta.btn-outline {
+      color: var(--light-text);
+      border-color: var(--light-text);
+      padding: 15px 35px;
+      font-size: 1em;
+      margin-top: 200px; /* Небольшой отступ сверху от слогана */
+  }
+  .hero-cta.btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--light-text);
+      border-color: var(--light-text);
+  }
+
+
+  /* === СТИЛИ ДЛЯ HERO SECTION (Без изменений) === */
+  .hero {
+      height: 100vh;
+      min-height: 600px;
+      /* ЗАМЕНИТЕ 'img/Placeholder Image.png' на путь к ВАШЕЙ фотографии фона */
+      background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('img/Placeholder\ Image.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      color: var(--light-text);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      text-align: center;
+  }
+  .hero-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 10;
+  }
+  .nav-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 15px;
+  }
+  .hero-nav ul {
+      list-style: none;
+      padding: 5px 10px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 25px;
+      max-width: max-content;
+  }
+  .hero-nav li {
+      margin: 0 20px;
+  }
+  .hero-nav a {
+      color: var(--light-text);
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 5px 0;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+  }
+  .hero-nav a:hover {
+      color: var(--light-text);
+      border-bottom-color: var(--light-text);
+  }
+  .hero-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+  }
+  .hero-logo {
+      max-width: 420px;
+      height: auto;
+      margin-bottom: 0px; /* Уменьшен отступ под лого */
+      filter: brightness(0) invert(1); /* Пример: делает SVG белым */
+  }
+  .hero-slogan {
+      font-size: 1.15em; /* Немного увеличим */
+      margin-top: 0; /* Убираем верхний отступ (уже есть от лого) */
+      max-width: 450px; /* Ограничиваем ширину для читаемости */
+      color: rgba(255, 255, 255, 0.9); /* Чуть менее яркий белый, чем лого */
+      font-weight: normal; /* Обычная жирность */
+      line-height: 1.5;
+  }
+  .scroll-down-link {
+      position: absolute;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--light-text);
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+  }
+  .scroll-down-link:hover {
+      opacity: 1;
+  }
+  .scroll-down-text {
+      font-size: 0.8em;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      font-weight: normal;
+  }
+  .scroll-down-icon {
+      animation: bounce-double 2.2s infinite;
+      line-height: 1;
+  }
+  .scroll-down-icon svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+  }
+  @keyframes bounce-double {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+  }
+
+
+  /* === Стили для Секции "О нас - Вступление" (Без изменений) === */
+  .section-intro {
+    background-color: var(--bg-light);
+      padding: 50px 25px;
+      text-align: center;
+  }
+  .intro-content {
+      max-width: 680px;
+      margin: 0 auto;
+  }
+  .intro-text {
+      font-size: 1.1em;
+      line-height: 1.7;
+      color: #5c5c5c;
+      margin-bottom: 40px;
+  }
+  .intro-text em {
+      font-style: italic;
+      color: inherit;
+      font-weight: normal;
+  }
+  .intro-image-wrapper {
+      display: inline-block;
+      position: relative;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 45% 55% 40% 60% / 60% 50% 55% 40%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      margin: 0 auto;
+      max-width: 320px;
+  }
+  .intro-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 40% 60% 35% 65% / 55% 45% 60% 40%;
+  }
+
+  /* === СТИЛИ ДРУГИХ СЕКЦИЙ (Wyprzedaż, Opinie, и т.д. - Без изменений) === */
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
+  .gallery-item { border: 1px solid var(--border-color); border-radius: 5px; overflow: hidden; text-align: center; background-color: #fff; }
+  .gallery-item img { max-width: 100%; height: auto; display: block; }
+  .gallery-item .price { font-weight: bold; color: var(--orange); padding: 10px; }
+  .testimonial-slider { margin-bottom: 30px; }
+  .testimonial { padding: 20px; margin: 0 10px; }
+  .avatar { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 10px auto; display: block; }
+  #info-links { padding-top: 20px; padding-bottom: 20px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+  #info-links .btn { margin: 0; }
+  .portfolio-slider { margin-bottom: 30px; }
+  .portfolio-slider img { max-width: 100%; height: auto; border-radius: 5px; }
+  .faq-accordion { max-width: 600px; margin: 0 auto; text-align: left; }
+  .faq-item { border-bottom: 1px solid var(--border-color); margin-bottom: 15px; }
+  .faq-item:last-child { border-bottom: none; margin-bottom: 0; }
+  .faq-question { padding: 15px 0; font-weight: bold; cursor: pointer; position: relative; }
+  .faq-question::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 1.2em; color: var(--light-green); transition: transform 0.3s ease; }
+  .faq-item.active .faq-question::after { content: '−'; transform: translateY(-50%) rotate(180deg); } /* Минус требует другого символа */
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; padding: 0 15px; }
+  .faq-answer p { margin: 0 0 15px 0; }
+  .faq-item.active .faq-answer { max-height: 300px; padding: 15px 15px; transition: max-height 0.5s ease-in, padding 0.3s ease-in; }
+  .contact-icons { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 20px; margin-bottom: 30px; }
+  .contact-icons a { color: var(--dark-text); text-decoration: none; transition: color 0.3s ease; }
+  .contact-icons a:hover { color: var(--orange); }
+  .social-icons { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 25px; }
+  .social-title { font-size: 1.1em; color: var(--light-green); margin-bottom: 15px; width: 100%; text-align: center; font-weight: bold; }
+  .footer-social-icons a { font-size: 1.6em; color: var(--light-green); transition: color 0.3s ease, transform 0.3s ease; }
+  .footer-social-icons a:hover { color: var(--orange); transform: scale(1.1); }
+  footer.section {
+      background-color: #e9e9e9;
+      padding: 20px 25px;
+      border-top: 1px solid var(--border-color);
+      border-bottom: none;
+  }
+  footer p {
+      margin: 0;
+      font-size: 0.9em;
+      color: #777;
+  }
+
+/* === НОВЫЕ СТИЛИ ДЛЯ СЕКЦИИ ПРОДУКТОВ (#produkty) === */
+#produkty {
+    padding-top: 50px; /* Настройте отступы при необходимости */
+    padding-bottom: 50px;
+}
+
+/* --- Стили для карусели продуктов --- */
+
+/* Добавляем относительное позиционирование для обертки,
+   чтобы абсолютно позиционировать кнопки внутри нее */
+   .product-carousel-wrapper {
+    position: relative;
+    width: 100%; /* Или другая ширина по вашему дизайну */
+    max-width: 800px; /* Пример максимальной ширины */
+    margin: 2rem auto; /* Центрирование и отступы */
+    overflow: hidden; /* Скрываем выходящие за пределы слайды */
+}
+
+.product-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Плавный переход */
+}
+
+.carousel-slide {
+    min-width: 100%; /* Каждый слайд занимает всю ширину карусели */
+    box-sizing: border-box;
+    /* Можно добавить padding, если нужно расстояние между картинками,
+       но тогда нужно будет пересчитывать ширину */
+}
+
+.carousel-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* Можно добавить стили для изображений, например:
+    max-height: 500px;
+    object-fit: cover; */
+}
+
+/* Пагинация (точки) */
+.carousel-pagination {
+    text-align: center;
+    margin-top: 1rem;
+    /* Позиционирование под слайдами, но внутри wrapper */
+    position: absolute;
+    bottom: 15px; /* Отступ снизу */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Поверх слайдов */
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #bbb; /* Цвет неактивной точки */
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #fff; /* Цвет активной точки */
+}
+
+/* Стили для кнопок навигации (Новое) */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10; /* Поверх слайдов */
+    border-radius: 50%; /* Круглые кнопки */
+    display: flex; /* Для центрирования иконки SVG */
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Ширина кнопки */
+    height: 40px; /* Высота кнопки */
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus {
+    background-color: rgba(0, 0, 0, 0.8); /* Фон при наведении/фокусе */
+    outline: none; /* Убрать стандартную обводку */
+}
+
+/* Стили для кнопки "назад" (Новое) */
+.carousel-prev-btn {
+    left: 15px; /* Отступ слева */
+}
+
+/* Стили для кнопки "вперед" (Новое) */
+.carousel-next-btn {
+    right: 15px; /* Отступ справа */
+}
+
+/* Стили для текста под каруселью (Новое) */
+.product-section-footer-text {
+    color: var(--text-light, #f0f0f0); /* Цвет текста на темном фоне */
+    text-align: center;
+    max-width: 600px; /* Ограничение ширины для лучшей читаемости */
+    margin: 2rem auto 1.5rem auto; /* Отступы сверху, по бокам авто, снизу */
+    line-height: 1.6;
+    font-size: 0.95rem; /* Немного меньше основного */
+}
+
+/* Стили для кнопки "Przejdź do katalogu" */
+.product-catalog-btn {
+    display: block; /* Чтобы кнопка заняла всю доступную ширину (если нужно) */
+    margin: 0 auto; /* Центрирование кнопки */
+    /* Дополнительные стили для кнопки, если нужно */
+    border-color: #fff; /* Белая обводка для контраста на темном фоне */
+    color: #fff; /* Белый текст */
+}
+
+.product-catalog-btn:hover {
+    background-color: #fff; /* Белый фон при наведении */
+    color: var(--bg-dark, #3a302a); /* Темный текст при наведении */
+}
+
+/* Стили для секции Produkty */
+#produkty {
+    /* Убедитесь, что у вас есть определение --bg-dark в :root или здесь */
+    --bg-dark: #3a302a; /* Коричневатый темный фон, как в прошлом примере */
+    background-color: var(--bg-dark);
+    color: var(--text-light, #f0f0f0); /* Основной светлый текст */
+    padding: 4rem 1rem; /* Внутренние отступы секции */
+    text-align: center; /* Центрирование заголовка по умолчанию */
+}
+
+#produkty h2 {
+    margin-bottom: 1rem; /* Отступ под заголовком */
+    color: var(--text-light, #f0f0f0); /* Цвет заголовка */
+    font-size: 2rem; /* Размер заголовка */
+}
+
+/* Медиа-запросы для адаптивности (пример) */
+@media (max-width: 768px) {
+    #produkty h2 {
+        font-size: 1.8rem;
+    }
+    .product-carousel-wrapper {
+        max-width: 95%;
+    }
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        padding: 8px;
+    }
+    .carousel-prev-btn {
+        left: 10px;
+    }
+    .carousel-next-btn {
+        right: 10px;
+    }
+    .product-section-footer-text {
+        margin: 1.5rem auto 1rem auto;
+        font-size: 0.9rem;
+    }
+}
+
+/* === Стили для подписей на слайдах карусели === */
+
+.carousel-item {
+    position: relative; /* Необходимо для позиционирования дочернего .custom-caption */
+  }
+  
+  .custom-caption {
+    position: absolute; /* Позиционируем поверх картинки */
+    bottom: 1.5rem;     /* Отступ снизу */
+    left: 1.5rem;      /* Отступ слева */
+    right: 1.5rem;     /* Отступ справа (чтобы ограничить ширину на больших экранах) */
+    z-index: 10;       /* Убедимся, что подпись над картинкой */
+    padding: 1rem;     /* Внутренние отступы */
+    color: #ffffff;    /* Белый цвет текста */
+    text-align: left;  /* Выравнивание текста по левому краю */
+  
+    /* --- Фон с размытием --- */
+    /* Полупрозрачный темный фон */
+    background-color: rgba(0, 0, 0, 0.55);
+  
+    /* Эффект размытия фона (может не работать в старых браузерах) */
+    /* Стандартное свойство */
+    backdrop-filter: blur(5px);
+    /* Для поддержки Safari */
+    -webkit-backdrop-filter: blur(5px);
+  
+    border-radius: 8px; /* Небольшое скругление углов */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Легкая тень для объема */
+  }
+  
+  /* Стили для заголовка продукта (название + цена) */
+  .custom-caption .product-title {
+    font-size: 1.2rem; /* Размер шрифта заголовка */
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Отступ под заголовком */
+  }
+  
+  /* Стили для деталей (материал, размер) */
+  .custom-caption .product-material,
+  .custom-caption .product-rozmiar {
+    font-size: 0.85em;  /* Уменьшенный шрифт для деталей */
+    margin-bottom: 0.25rem; /* Небольшой отступ между деталями */
+    opacity: 0.9; /* Слегка приглушаем детали */
+  }
+  
+  /* Убираем нижний отступ у последнего параграфа в подписи */
+  .custom-caption p:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* --- Адаптивность (Пример) --- */
+  /* На маленьких экранах делаем отступы и шрифт чуть меньше */
+  @media (max-width: 767px) {
+    .custom-caption {
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      padding: 0.8rem;
+    }
+    .custom-caption .product-title {
+      font-size: 1rem;
+    }
+    .custom-caption .product-material,
+    .custom-caption .product-rozmiar {
+      font-size: 0.8em;
+    }
+  }
+  /* === Стили для FAQ Аккордеона === */
+
+.accordion {
+  max-width: 700px; /* Ограничиваем ширину для читаемости */
+  margin: 2rem auto 0 auto; /* Центрируем и добавляем отступ сверху */
+  font-family: var(--font-main); /* Используем основной шрифт сайта */
+  border: 1px solid var(--border-color); /* Общая рамка вокруг аккордеона */
+  border-radius: 5px; /* Небольшое скругление углов */
+  overflow: hidden; /* Скрываем выпирающие части при анимации */
+  background-color: var(--bg-light); /* Фоновый цвет из переменных сайта */
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--border-color); /* Разделитель между элементами */
+}
+
+.accordion-item:last-child {
+  border-bottom: none; /* Убираем нижнюю границу у последнего элемента */
+}
+
+.accordion-item button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 1.5em; /* Внутренние отступы */
+  color: var(--dark-text); /* Цвет текста вопроса */
+  font-size: 1.05em; /* Немного увеличим шрифт вопроса */
+  font-weight: 600; /* Полужирный шрифт для вопроса */
+  border: none;
+  background: none; /* Убираем фон кнопки по умолчанию */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out; /* Плавный переход для фона при наведении */
+}
+
+.accordion-item button:hover,
+.accordion-item button:focus {
+  background-color: rgba(0, 0, 0, 0.03); /* Легкий фон при наведении/фокусе */
+  outline: none; /* Убираем стандартную обводку фокуса */
+}
+
+/* Стилизация заголовка внутри кнопки */
+.accordion-item button .accordion-title {
+  padding-right: 2.5em; /* Оставляем место для иконки справа */
+  display: inline-block; /* Чтобы padding-right работал */
+}
+
+/* Стилизация иконки (+/-) */
+.accordion-item button .icon {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 1.5em;
+  width: 22px;
+  height: 22px;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease-in-out; /* Анимация поворота иконки */
+}
+
+/* Рисуем + с помощью псевдоэлементов */
+.accordion-item button .icon::before,
+.accordion-item button .icon::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: var(--light-green); /* Цвет иконки из переменных */
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.accordion-item button .icon::before { /* Горизонтальная линия */
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  margin-top: -1px;
+}
+
+.accordion-item button .icon::after { /* Вертикальная линия */
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  margin-left: -1px;
+}
+
+/* Стили для активного/открытого состояния */
+.accordion-item button[aria-expanded='true'] {
+  color: var(--light-green); /* Меняем цвет заголовка на активный */
+  /* background-color: rgba(136, 176, 75, 0.05); /* Можно добавить легкий фон */
+}
+
+/* Поворачиваем вертикальную линию, чтобы получился - */
+.accordion-item button[aria-expanded='true'] .icon::after {
+  transform: rotate(90deg);
+}
+/* Можно менять цвет иконки в активном состоянии, если нужно */
+/* .accordion-item button[aria-expanded='true'] .icon::before,
+.accordion-item button[aria-expanded='true'] .icon::after {
+  background-color: var(--orange); /* Пример: меняем на оранжевый */
+/* } */
+
+/* Стили для контента (ответа) */
+.accordion-content {
+  max-height: 0; /* Скрываем контент по умолчанию */
+  overflow: hidden;
+  transition: max-height 0.3s ease-out; /* Плавная анимация раскрытия */
+  background-color: var(--bg-light); /* Фон ответа (может совпадать с фоном аккордеона) */
+}
+
+.accordion-content p {
+  padding: 1em 1.5em; /* Отступы для текста ответа */
+  margin: 0;
+  font-size: 0.95em; /* Размер шрифта ответа */
+  line-height: 1.6;
+  color: var(--dark-text); /* Цвет текста ответа */
+}
+
+/* Когда кнопка активна, показываем контент */
+.accordion-item button[aria-expanded='true'] + .accordion-content {
+   /* max-height устанавливается через JS, но можно задать большое значение для CSS-only варианта */
+}
+
+/* Дополнительно: убираем верхний отступ у первого параграфа в ответе, если он есть */
+.accordion-content p:first-child {
+    padding-top: 0.5em; /* Или margin-top: 0; */
+}
+/* Дополнительно: добавляем нижний отступ последнему параграфу */
+.accordion-content p:last-child {
+    padding-bottom: 1.5em;
+}
+
+/* === СТИЛИ ДЛЯ SVG ЛОГО В СОЦИАЛЬНЫХ ИКОНКАХ === */
+.footer-social-icons a img.social-svg-logo {
+    display: inline-block; /* Или block, чтобы точно уважались размеры */
+    width: 1.6em;       /* Задаем ширину, равную font-size других иконок */
+    height: 1.6em;      /* Задаем высоту, равную font-size других иконок */
+    vertical-align: middle; /* Выравниваем по вертикали с другими элементами */
+    /* fill: currentColor; НЕ сработает для <img> */
+}
+
+/* --- Обновленные стили для ссылок соц. иконок для лучшего выравнивания --- */
+.footer-social-icons a {
+    font-size: 1.6em; /* Базовый размер для иконок (текст, FontAwesome) */
+    color: var(--light-green);
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-flex; /* Используем flex для выравнивания контента внутри ссылки */
+    align-items: center;  /* Вертикальное выравнивание контента по центру */
+    justify-content: center; /* Горизонтальное выравнивание (на всякий случай) */
+    line-height: 1; /* Предотвращает лишнюю высоту из-за line-height */
+}
+
+.footer-social-icons a:hover {
+    color: var(--orange); /* Меняет цвет шрифтовых иконок (если есть) */
+    transform: scale(1.1); /* Увеличивает всю ссылку (включая SVG) */
+}
+
+/* Убери или закомментируй эти старые правила, если они есть, т.к. мы их обновили выше */
+/*
+.footer-social-icons a { font-size: 1.6em; color: var(--light-green); transition: color 0.3s ease, transform 0.3s ease; }
+.footer-social-icons a:hover { color: var(--orange); transform: scale(1.1); }
+*/
